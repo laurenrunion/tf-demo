@@ -1,7 +1,6 @@
 <html>
   <body style="background-color: {{ page_color }}; font-family: sans-serif; text-align: center; padding-top: 80px;">
     <h1>{{ page_message }}</h1>
-    {# replaced ansible_hostname "Served by" line; removed secret_message / vault line #}
     <p>Private IP: {{ ansible_facts['default_ipv4']['address'] }}</p>
-  </body>
+  </body>s
 </html>
