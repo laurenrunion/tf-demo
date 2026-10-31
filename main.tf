@@ -76,6 +76,6 @@ module "ec2_instance" {
 
   tags = {
     Terraform = "true"
-    Owner     = "laurenServer" # changed from Role = "webserver"
+    Owner     = "laurenServer" 
   }
 }

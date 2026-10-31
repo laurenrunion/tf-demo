@@ -1,9 +1,8 @@
 ---
-- hosts: owner_laurenServer  # changed from role_webserver to match Owner tag group
+- hosts: owner_laurenServer  
   become: yes
   vars_files:
     - vars.yml
-    # removed secrets.yml (vault secret no longer used)
 
   tasks:
     - name: install nginx
