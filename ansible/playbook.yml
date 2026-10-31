@@ -1,0 +1,24 @@
+---
+- hosts: owner_laurenServer  # changed from role_webserver to match Owner tag group
+  become: yes
+  vars_files:
+    - vars.yml
+    # removed secrets.yml (vault secret no longer used)
+
+  tasks:
+    - name: install nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: build the web page from the template
+      ansible.builtin.template:
+        src: templates/index.html.j2
+        dest: /var/www/html/index.html
+
+    - name: start nginx if it is not running
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
