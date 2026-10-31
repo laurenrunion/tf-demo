@@ -2,17 +2,17 @@ plugin: amazon.aws.aws_ec2
 regions:
   - us-east-1
 filters:
-  tag:Owner: laurenServer  # changed from tag:Role: webserver
+  tag:Owner: laurenServer 
   instance-state-name: running
 hostnames:
   - ip-address
-keyed_groups:
-  - key: ec2_tags.Owner  # changed from tags.Role (fixes deprecated tags warning)
-    prefix: owner  # changed from role
+keyed_groups:s
+  - key: ec2_tags.Owner  
+    prefix: owner
 compose:
   ansible_user: "'ubuntu'"
   ansible_ssh_private_key_file: "'~/.ssh/lauren-demo-key.pem'"
   ansible_ssh_common_args: "'-o StrictHostKeyChecking=no'"
-  ansible_python_interpreter: "'/usr/bin/python3'"  # silence Python interpreter discovery warning
+  ansible_python_interpreter: "'/usr/bin/python3'"
 
 #https://oneuptime.com/blog/post/2025-12-18-create-ansible-inventory-from-terraform/view
