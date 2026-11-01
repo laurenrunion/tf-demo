@@ -6,7 +6,7 @@ filters:
   instance-state-name: running
 hostnames:
   - ip-address
-keyed_groups:s
+keyed_groups:
   - key: ec2_tags.Owner  
     prefix: owner
 compose:
